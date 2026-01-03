@@ -2,14 +2,14 @@ import React from "react";
 
 const ContactList = ({ contacts, handleDelete }) => {
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 min-h-[400px] overflow-x-auto">
+    <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 min-h-[400px]">
       <h2 className="text-xl font-bold mb-6 text-slate-800 border-b pb-2">
         Your Contacts ({contacts.length})
       </h2>
       {contacts.length === 0 ? (
         <p className="text-slate-500 text-center py-8">No contacts found.</p>
       ) : (
-        <>
+        <div className="max-h-[500px] overflow-y-auto overflow-x-auto">
           <table className="w-full text-left border-collapse hidden md:table">
             <thead>
               <tr className="text-slate-500 border-b border-slate-200 text-sm uppercase tracking-wider">
@@ -31,8 +31,10 @@ const ContactList = ({ contacts, handleDelete }) => {
                   </td>
                   <td className="py-3 px-4">{contact.email}</td>
                   <td className="py-3 px-4">{contact.phone}</td>
-                  <td className="py-3 px-4 text-slate-500 italic truncate max-w-xs">
-                    {contact.message || "—"}
+                  <td className="py-3 px-4">
+                    <div className="text-slate-500 italic truncate max-w-xs">
+                      {contact.message || "—"}
+                    </div>
                   </td>
                   <td className="py-3 px-4 text-right">
                     <button
@@ -68,14 +70,14 @@ const ContactList = ({ contacts, handleDelete }) => {
                   </button>
                 </div>
                 {contact.message && (
-                  <p className="text-xs text-slate-500 italic bg-white p-2 rounded border border-slate-100">
+                  <p className="text-xs text-slate-500 italic bg-white p-2 rounded border border-slate-100 break-all">
                     {contact.message}
                   </p>
                 )}
               </div>
             ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
