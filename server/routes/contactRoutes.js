@@ -1,9 +1,12 @@
+// Imports
 import express from "express";
 import Contact from "../models/Contact.js";
 
+// Router Configuration
 const router = express.Router();
 
-// POST API - Store contact data
+// Routes
+// POST - Store contact data
 router.post("/", async (req, res) => {
   try {
     const newContact = new Contact(req.body);
@@ -14,7 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// GET API - Fetch all contacts
+// GET - Fetch all contacts
 router.get("/", async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ _id: -1 }); // Basic sorting (newest first)
@@ -24,7 +27,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// DELETE API - Delete a contact
+// DELETE - Delete a contact
 router.delete("/:id", async (req, res) => {
   try {
     await Contact.findByIdAndDelete(req.params.id);
@@ -34,4 +37,5 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// Export
 export default router;

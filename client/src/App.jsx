@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 const App = () => {
+  // State Management
   const [contacts, setContacts] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -15,6 +16,7 @@ const App = () => {
     message: "",
   });
 
+  // API Calls
   const getContacts = useCallback(async () => {
     try {
       const { data } = await fetchContacts();
@@ -24,15 +26,18 @@ const App = () => {
     }
   }, []);
 
+  // Lifecycle Methods
   useEffect(() => {
     getContacts();
   }, [getContacts]);
 
+  // Validation Logic
   const validateContact = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return formData.name && emailRegex.test(formData.email) && formData.phone;
   };
 
+  // Event Handlers
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -51,8 +56,8 @@ const App = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#ef4444", // Red color matches your delete button
-      cancelButtonColor: "#3b82f6", // Blue color
+      confirmButtonColor: "#ef4444",
+      cancelButtonColor: "#3b82f6",
       confirmButtonText: "Yes, delete it!",
     });
 
@@ -67,6 +72,7 @@ const App = () => {
     }
   };
 
+  // Render
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6 font-sans text-slate-800">
       <ToastContainer

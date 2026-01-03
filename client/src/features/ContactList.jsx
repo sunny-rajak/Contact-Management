@@ -1,6 +1,9 @@
+// Imports
 import React from "react";
 
+// Component Definition
 const ContactList = ({ contacts, handleDelete }) => {
+  // Render
   return (
     <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 min-h-[400px]">
       <h2 className="text-xl font-bold mb-6 text-slate-800 border-b pb-2">
@@ -10,6 +13,7 @@ const ContactList = ({ contacts, handleDelete }) => {
         <p className="text-slate-500 text-center py-8">No contacts found.</p>
       ) : (
         <div className="max-h-[500px] overflow-y-auto overflow-x-auto">
+          {/* Desktop View (Table) */}
           <table className="w-full text-left border-collapse hidden md:table">
             <thead>
               <tr className="text-slate-500 border-b border-slate-200 text-sm uppercase tracking-wider">

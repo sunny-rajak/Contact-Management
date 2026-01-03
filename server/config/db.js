@@ -1,5 +1,7 @@
+// Imports
 import mongoose from "mongoose";
 
+// Connection Function
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -10,4 +12,5 @@ const connectDB = async () => {
   }
 };
 
+// Export
 export default connectDB;

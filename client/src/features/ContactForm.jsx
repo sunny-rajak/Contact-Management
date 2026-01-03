@@ -1,8 +1,11 @@
+// Imports
 import React from "react";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 
+// Component Definition
 const ContactForm = ({ formData, setFormData, handleSubmit, isValid }) => {
+  // Render
   return (
     <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
       <h2 className="text-xl font-bold mb-6 text-slate-800 border-b pb-2">

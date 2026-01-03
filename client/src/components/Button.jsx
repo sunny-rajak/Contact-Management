@@ -1,5 +1,7 @@
+// Imports
 import React from "react";
 
+// Component Definition
 const Button = ({
   children,
   onClick,
@@ -7,6 +9,7 @@ const Button = ({
   disabled = false,
   className = "",
 }) => {
+  // Render
   return (
     <button
       type={type}
