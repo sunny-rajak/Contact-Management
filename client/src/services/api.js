@@ -6,3 +6,4 @@ const API = axios.create({
 
 export const fetchContacts = () => API.get("/contacts");
 export const createContact = (newContact) => API.post("/contacts", newContact);
+export const deleteContact = (id) => API.delete(`/contacts/${id}`);
